@@ -17,12 +17,15 @@ const app = Vue.createApp ({
                         const randomEmail = res.data.response
                         this.eMail.push(randomEmail)
                     })
+                    .catch(() => {
+                        alert('Errore')
+                    })
             }
         }
     },
 
     created () {
-        this.getRandomEmail()
+        this.getRandomEmail()    
     }
 })
 
