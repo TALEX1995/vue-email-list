@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="root">
-        <i class="fas fa-spinner fa-spin fa-4x m-5" v-show="!endEmailArray"></i>
+        <i class="fas fa-spinner fa-spin fa-4x m-5" v-if="!error" v-show="!endEmailArray"></i>
         <ul v-show="endEmailArray">
             <li v-for="email in eMail">{{ email }}</li>
         </ul>
