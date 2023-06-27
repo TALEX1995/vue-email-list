@@ -18,6 +18,7 @@ const app = Vue.createApp ({
 
     methods: {
         getRandomEmail () {
+            this.eMail = [];
             for(let i = 0; i < this.eMailNumber; i++) {
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                     .then((res) => {
