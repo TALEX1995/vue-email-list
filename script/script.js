@@ -6,7 +6,8 @@ const app = Vue.createApp ({
         return {
             eMail: [],
             eMailNumber: 10,
-            endGetEmail: false
+            error: ''
+
         }
     },
 
@@ -25,7 +26,7 @@ const app = Vue.createApp ({
                         this.eMail.push(randomEmail)
                     })
                     .catch(() => {
-                        alert('Errore')
+                        this.error = 'La pagina non è stata caricata correttamente'
                     })
             }
         }
