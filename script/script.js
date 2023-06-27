@@ -5,9 +5,8 @@ const app = Vue.createApp ({
     data: () => {
         return {
             eMail: [],
-            eMailNumber: 10,
-            error: ''
-
+            eMailNumber: null,
+            error: '',    
         }
     },
 
@@ -22,8 +21,12 @@ const app = Vue.createApp ({
             for(let i = 0; i < this.eMailNumber; i++) {
                 axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
                     .then((res) => {
-                        const randomEmail = res.data.response
-                        this.eMail.push(randomEmail)
+                        if(this.eMail.includes(res.data.response)){
+                            this.eMailNumber++
+                        } else {
+                            const randomEmail = res.data.response
+                            this.eMail.push(randomEmail)
+                        }
                     })
                     .catch(() => {
                         this.error = 'La pagina non è stata caricata correttamente'
@@ -32,9 +35,9 @@ const app = Vue.createApp ({
         }
     },
 
-    created () {
-        this.getRandomEmail()    
-    }
+    // created () {
+    //     this.getRandomEmail()    
+    // }
 })
 
 
