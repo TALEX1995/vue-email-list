@@ -30,7 +30,7 @@
             <li v-for="email in eMail">{{ email }}</li>
         </ul>
         <div v-show="error">{{ error }}</div>
-        <input v-model="eMailNumber" class="w-50" type="text" placeholder="Scrivi il numero delle e-mail che vuoi generare">
+        <input v-model.number="eMailNumber" class="w-50 ms-3" type="text" placeholder="Scrivi il numero delle e-mail che vuoi generare">
         <button @click="getRandomEmail">Genera</button>
 
     </div>
