@@ -5,7 +5,14 @@ const app = Vue.createApp ({
     data: () => {
         return {
             eMail: [],
-            eMailNumber: 10
+            eMailNumber: 10,
+            endGetEmail: false
+        }
+    },
+
+    computed: {
+        endEmailArray () {
+            return this.eMail.length === this.eMailNumber 
         }
     },
 
